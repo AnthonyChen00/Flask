@@ -2,6 +2,7 @@ from app import db, login
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from hashlib import md5
 
 #Created a class inherit from db.Model - base class for all models in Flask-SQLAlchemy
 #Variables called as as db.Column() to creates information for each db entre. Can be indicated if fields should be unique and indexed (imported!)
@@ -26,6 +27,10 @@ class User(UserMixin, db.Model):
 
     def check_password(self,password):
         return check_password_hash(self.password_hash, password)
+
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest,size)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
