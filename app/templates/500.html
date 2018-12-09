@@ -1,5 +1,7 @@
-{% extends base.html %}
+{% extends "base.html" %}
+
 {% block content %}
-  <h1>File Not Found</h1>
-  <p><a href = "{{ url_for('index') }}">Back</a></p>
+  <h1>An unexpected error has occured</h1>
+  <p>The administraor has been notified, sorry for the inconvenience!</p>
+  <p><a href="{{ url_for('index')}}">Back</a></p>
 {% endblock %}
