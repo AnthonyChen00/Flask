@@ -1,4 +1,4 @@
-2018-12-09 01:18:24,355 ERROR: Exception on /index [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-12-09 21:47:11,576 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6NiwiZXhwIjoxNTQ0NDIxMzIyLjIyNjE5MX0.kNh_-Z3_iRlTZhRiTAMLyQYum1gnTnjYfdHuwWs-3F0 [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,10 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 31, in index
-    return render_template('index.html',title = 'Home Page',form = form, posts = posts)
+  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 170, in reset_password
+    return render_template('reset_password.html', form=form)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
@@ -28,16 +26,17 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 1, in top-level template code
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/reset_password.html", line 1, in top-level template code
     {% extends "base.html" %}
   File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 31, in top-level template code
     {% block content %}{% endblock %}
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 18, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2018-12-09 01:18:57,372 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-09 01:37:28,760 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-09 01:37:31,100 ERROR: Exception on /index [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/reset_password.html", line 6, in block "content"
+    {{ form.hidden.tag() }}
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'app.form.ResetPasswordForm object' has no attribute 'hidden'
+2018-12-09 21:49:01,962 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:52]
+2018-12-09 21:49:03,697 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6NiwiZXhwIjoxNTQ0NDIxMzIyLjIyNjE5MX0.kNh_-Z3_iRlTZhRiTAMLyQYum1gnTnjYfdHuwWs-3F0 [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -51,11 +50,25 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 31, in index
-    next_url = url_for('index', page.posts.next_num) if posts.has_next else None
-AttributeError: 'int' object has no attribute 'posts'
-2018-12-09 01:38:20,305 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-09 01:39:17,435 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-09 18:18:29,938 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 170, in reset_password
+    return render_template('reset_password.html', form=form)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/reset_password.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/reset_password.html", line 21, in block "content"
+    <p>{{ form.submit() }}</p>
+jinja2.exceptions.UndefinedError: 'app.form.ResetPasswordForm object' has no attribute 'submit'
+2018-12-09 21:49:43,761 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:52]
