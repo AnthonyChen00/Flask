@@ -1,25 +1,4 @@
-2018-12-08 20:03:47,505 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 20:08:42,673 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 20:09:02,109 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 20:09:14,776 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 21:58:33,992 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:23:53,880 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:24:12,840 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:24:39,975 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:25:14,261 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:26:40,202 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:28:58,102 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:29:20,052 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:29:49,933 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:30:48,725 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:37:22,622 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:39:40,790 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:40:37,738 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:55:43,194 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 22:59:59,015 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 23:01:31,773 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 23:14:09,356 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
-2018-12-08 23:14:32,229 ERROR: Exception on /user/poop [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-12-09 01:18:24,355 ERROR: Exception on /index [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 83, in user
-    return render_template('user.html',user= user, posts = posts)
+  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 31, in index
+    return render_template('index.html',title = 'Home Page',form = form, posts = posts)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
@@ -49,13 +28,34 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/user.html", line 1, in top-level template code
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 30, in top-level template code
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 31, in top-level template code
     {% block content %}{% endblock %}
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/user.html", line 11, in block "content"
-    <p>{{ user.follower.count() }} followers, {{ user.followed.count() }} following.</p>
-  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'follower'
-2018-12-08 23:15:56,389 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 18, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2018-12-09 01:18:57,372 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+2018-12-09 01:37:28,760 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+2018-12-09 01:37:31,100 ERROR: Exception on /index [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 31, in index
+    next_url = url_for('index', page.posts.next_num) if posts.has_next else None
+AttributeError: 'int' object has no attribute 'posts'
+2018-12-09 01:38:20,305 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+2018-12-09 01:39:17,435 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
+2018-12-09 18:18:29,938 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:50]
