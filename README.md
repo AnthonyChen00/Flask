@@ -16,5 +16,6 @@ This application is a lightweight bloggin application built with Flask, a microf
   ```
 
 4. Accessing the website
-  Go to [link](127.0.0.1:5000) after the booting the server
-
+  ```
+  Go to 127.0.0.1:5000 after the booting the server
+  ```
