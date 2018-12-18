@@ -47,3 +47,4 @@ Traceback (most recent call last):
 jinja2.exceptions.UndefinedError: 'prev' is undefined
 2018-12-16 07:34:05,895 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
 2018-12-16 07:35:49,770 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
+2018-12-18 11:47:14,676 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
