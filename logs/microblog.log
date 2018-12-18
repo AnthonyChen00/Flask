@@ -1,4 +1,4 @@
-2018-12-16 07:32:57,230 ERROR: Exception on /index [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-12-18 11:55:25,262 ERROR: Exception on /explore [GET] [in /Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 33, in index
-    return render_template('index.html',title = 'Home Page',form = form, posts = posts.items, next_url = next_url, prev_url = prev_url)
+  File "/Users/anthonychen/Documents/practice/Flask/app/routes.py", line 141, in explore
+    return render_template('index.html', title = 'Explore', posts=posts.items, next_url = next_url, prev_url = prev_url)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
@@ -40,11 +40,11 @@ Traceback (most recent call last):
     {% block body -%}
   File "/Users/anthonychen/Documents/practice/Flask/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
     {% block content -%}
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 47, in block "content"
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/base.html", line 48, in block "content"
     {% block app_content %}{% endblock %}
-  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 15, in block "app_content"
-    <a href="{{prev-url or '#' }}">
-jinja2.exceptions.UndefinedError: 'prev' is undefined
-2018-12-16 07:34:05,895 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
-2018-12-16 07:35:49,770 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
-2018-12-18 11:47:14,676 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:54]
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/index.html", line 10, in block "app_content"
+    {% include '_post.html'%}
+  File "/Users/anthonychen/Documents/practice/Flask/app/templates/_post.html", line 12, in top-level template code
+    said {{ moment(post.timestamp.fromNow()) }}:
+jinja2.exceptions.UndefinedError: 'datetime.datetime object' has no attribute 'fromNow'
+2018-12-18 11:56:23,897 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
