@@ -48,3 +48,8 @@ Traceback (most recent call last):
     said {{ moment(post.timestamp.fromNow()) }}:
 jinja2.exceptions.UndefinedError: 'datetime.datetime object' has no attribute 'fromNow'
 2018-12-18 11:56:23,897 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
+2018-12-19 17:24:00,902 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
+2018-12-19 17:24:08,129 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
+2018-12-19 17:24:08,249 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
+2018-12-19 17:24:08,253 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
+2018-12-19 17:24:08,321 INFO: Microblog startup [in /Users/anthonychen/Documents/practice/Flask/app/__init__.py:56]
